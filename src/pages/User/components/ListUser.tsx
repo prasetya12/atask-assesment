@@ -15,7 +15,7 @@ interface ListUserProps {
 export default function ListUser({ data, isLoading }: ListUserProps) {
 
     const [detailUsername, setDetailUsername] = useState('')
-    const { data: repos, refetch, isLoading: isLoadingRepo, error } = useGetRepoByUsername(detailUsername);
+    const { data: repos, refetch, isLoading: isLoadingRepo } = useGetRepoByUsername(detailUsername);
 
 
     const handleDetailRepo = (username: string) => {
@@ -53,7 +53,7 @@ export default function ListUser({ data, isLoading }: ListUserProps) {
                             {repos && repos.length > 0 ? (<>
                                 <div className="flex flex-col gap-2 ">
                                     {repos.map((repo, index) => (
-                                        <div className="bg-gray-200 p-4 rounded-md">
+                                        <div className="bg-gray-200 p-4 rounded-md" key={index}>
                                             <div className="flex justify-between">
                                                 <div>{repo.name}</div>
                                                 <div>{repo.stargazers_count}</div>

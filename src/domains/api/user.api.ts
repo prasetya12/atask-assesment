@@ -1,3 +1,4 @@
+import { GitHubUser } from '../../data/interfaces/user.interface';
 import octokit from './httpClient';
 export const fetchUsers = async (username: string) => {
     const response = await octokit.request('GET /search/users', {
@@ -7,7 +8,7 @@ export const fetchUsers = async (username: string) => {
         }
     })
 
-    return response.data
+    return response.data.items as GitHubUser[]
 
 };
 

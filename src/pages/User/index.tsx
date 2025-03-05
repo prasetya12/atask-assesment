@@ -3,12 +3,11 @@ import Layout from "../../components/layouts/layout";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Form, FormField, FormLabel, FormItem, FormDescription, FormMessage, FormControl } from "../../components/ui/Form";
+import { Form, FormField, FormItem, FormMessage, FormControl } from "../../components/ui/Form";
 import { Input } from "../../components/ui/Input";
 import { Button } from "../../components/ui/Button";
 import ListUser from "./components/ListUser";
 import { useState, useEffect } from "react";
-import { fetchUsers } from "../../domains/api/user.api";
 const formSearchSchema = z.object({
     search: z.string().min(2, {
         message: "Search must be at least 2 characters.",
@@ -18,7 +17,7 @@ const formSearchSchema = z.object({
 export default function User() {
     const [username, setUsername] = useState<string>("");
 
-    const { data: users, refetch, isLoading, error } = useUsers(username);
+    const { data: users, refetch, isLoading } = useUsers(username);
 
     const form = useForm<z.infer<typeof formSearchSchema>>({
         resolver: zodResolver(formSearchSchema),
@@ -63,7 +62,7 @@ export default function User() {
                             </div>
 
                             <div className="mt-6">
-                                <ListUser data={users?.items ?? []} isLoading={isLoading} />
+                                <ListUser data={users ?? []} isLoading={isLoading} />
                             </div>
                         </form>
                     </div>
