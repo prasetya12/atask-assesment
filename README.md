@@ -1,54 +1,81 @@
-# React + TypeScript + Vite
+# Atask Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project Search Github User
 
-Currently, two official plugins are available:
+## 🛠 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** (with Vite)
+- **Tailwind CSS** (for styling)
+- **TypeScript** (for type safety)
+- **shadcn/ui** (for UI components)
 
-## Expanding the ESLint configuration
+## 📌 Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js (latest LTS version recommended)
+- npm or yarn
+- A GitHub personal access token
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Installation & Setup
+
+1. **Clone the repository**
+
+   ```sh
+   git clone https://github.com/prasetya12/atask-assesment.git
+   cd your-repo
+   ```
+
+2. **Install dependencies**
+
+   ```sh
+   npm install
+   ```
+
+   _or_
+
+   ```sh
+   yarn install
+   ```
+
+3. **Setup environment variables**
+
+   - Copy `.env.example` to `.env`:
+     ```sh
+     cp .env.example .env
+     ```
+   - Open `.env` and add your GitHub personal access token:
+     ```env
+     VITE_GITHUB_TOKEN=your_github_personal_access_token
+     ```
+
+4. **Run the development server**
+
+   ```sh
+   npm run dev
+   ```
+
+   _or_
+
+   ```sh
+   yarn dev
+   ```
+
+5. **Open the project in your browser**
+   - The development server will run at `http://localhost:5173/`
+
+## 🔥 Build for Production
+
+To create a production build, run:
+
+```sh
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+_or_
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```sh
+yarn build
 ```
+
+This will generate an optimized build in the `dist/` folder.
+
+## ✅ Lint & Format Cod
